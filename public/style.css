@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('fonts/icomoon.eot?whxltx');
+  src: url('fonts/icomoon.eot?whxltx#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?whxltx') format('truetype'),
+    url('fonts/icomoon.woff?whxltx') format('woff'),
+    url('fonts/icomoon.svg?whxltx#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^='icon-'],
+[class*=' icon-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-envelope:before {
+  content: '\e902';
+}
+.icon-keyboard_arrow_up:before {
+  content: '\e903';
+}
+.icon-verified:before {
+  content: '\e900';
+}
+.icon-x:before {
+  content: '\e901';
+}
+.icon-link:before {
+  content: '\e9cb';
+}
+.icon-arrow-right2:before {
+  content: '\ea3c';
+}
+.icon-instagram:before {
+  content: '\ea92';
+}
+.icon-github:before {
+  content: '\eab0';
+}
+.icon-linkedin:before {
+  content: '\eac9';
+}
