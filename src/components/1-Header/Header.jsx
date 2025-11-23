@@ -9,7 +9,7 @@ import { Box } from '@mui/material';
 
 const Header = ({ toggleMode, mode }) => {
   const [showModel, setshowModel] = useState(false);
-  const linkes = ['About', 'Article', 'Projects', 'Speaking', 'Contact'];
+  const linkes = ['About Me', 'Article', 'Projects', 'Speaking', 'Contact'];
 
   return (
     <header>
@@ -22,7 +22,7 @@ const Header = ({ toggleMode, mode }) => {
       <Box
         component={'nav'}
         sx={{
-          bgcolor: mode === 'dark' ? 'var(--bgHeader)' : '#FFFFFF',
+          bgcolor: mode === 'dark' ? 'var(--bgHeader)'   : '#FFFFFF',
         }}
       >
         <ul>

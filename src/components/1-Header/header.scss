@@ -6,8 +6,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 1.4rem;
-  padding: 0 2.4rem;
+  padding: 1.5rem 2.4rem 0 0;
 
   span {
     @media (max-width: 600px) {
@@ -68,6 +67,7 @@ header {
     background-color: rgba(40, 40, 48, 0.75);
     z-index: 100;
     transition: 0.5s;
+    backdrop-filter: blur(0.25rem);
 
     ul {
       width: 75%;

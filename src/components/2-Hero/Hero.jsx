@@ -44,7 +44,7 @@ const Hero = ({ mode }) => {
           {icons.map((item, i) => {
             return (
               <span key={i}>
-                <a href="" className={item}></a>
+                <a href="#" className={item}></a>
               </span>
             );
           })}
