@@ -5,7 +5,7 @@ import Main from './components/3-main/Main';
 import ContactUs from './components/4-contact-us/ContactUs';
 import Fotter from './components/5-Fotter/Fotter';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline, Button, Box } from '@mui/material';
 import ScrollTop from './components/scroll/Scroll';
@@ -24,14 +24,18 @@ function App() {
     setMode((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
-  const Theme = createTheme({
-    palette: {
-      mode: mode,
-    },
-  });
+  const them = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: mode,
+        },
+      }),
+    [mode]
+  );
 
   return (
-    <ThemeProvider theme={Theme}>
+    <ThemeProvider theme={them}>
       <CssBaseline />
 
       <Container

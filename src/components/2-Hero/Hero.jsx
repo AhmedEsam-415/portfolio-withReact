@@ -2,7 +2,12 @@ import { Stack } from '@mui/material';
 import './hero.scss';
 
 const Hero = ({ mode }) => {
-  const icons = ['icon-x', 'icon-instagram', 'icon-github', 'icon-linkedin'];
+  const icons = [
+    'icon-facebook',
+    'icon-instagram',
+    'icon-github',
+    'icon-linkedin',
+  ];
 
   return (
     <Stack
