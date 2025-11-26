@@ -7,10 +7,14 @@
 
   --title: rgb(244 244 244);
   --supTitleInDark: rgb(159, 159, 169);
-  --supTitleInLight: rgb(82, 82, 92);
+  --supTitleInLight: rgba(82, 82, 92);
 
   --bgHeader: rgb(39, 39, 42);
   --blue: rgb(93 188 252);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 * {
@@ -22,6 +26,32 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #fafafa;
   color: #fff;
+
+  // Scroll Bar
+  --sb-track-color: #232e33;
+  --sb-thumb-color: rgb(93 188 252);
+  --sb-size: 12px;
+
+  &::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+  &::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 20px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 20px;
+    border: 2px solid var(--sb-track-color);
+  }
+
+  /* Fallback for browsers that don't support webkit scrollbars */
+  @supports (scrollbar-color: auto) {
+    body {
+      scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+      scrollbar-width: thin;
+    }
+  }
 
   .Container {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -43,5 +73,12 @@ body {
     @media (min-width: 1200px) {
       max-width: 90%;
     }
+  }
+
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
   }
 }

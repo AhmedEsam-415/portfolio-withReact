@@ -1,9 +1,14 @@
+a {
+  text-decoration: none;
+  color: initial;
+}
 .Main {
   margin-bottom: 3rem;
   div.firstDiv {
     button {
       all: unset;
-      background-color: rgba(36, 37, 46, 1);
+      cursor: pointer;
+      background-color: rgba(36, 37, 46);
       color: white;
       padding: 0.7rem 0;
       text-align: center;
@@ -28,46 +33,92 @@
   }
 
   div.secDiv {
+    justify-content: center;
+
     .Card {
-      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
       max-width: 300px;
+      &:hover {
+        transition: 0.3s;
+        rotate: 2deg;
+        scale: 1.05;
+        outline: 1px solid var(--blue);
+      }
+
       div {
         h1 {
           font-size: 23px;
         }
         p {
-          color: var(--supTitleInLight);
           line-height: 1.12;
           letter-spacing: 0.7;
           margin: 10px 0;
         }
         nav {
+          margin: 15px 0;
           align-items: center;
-          padding: 10px;
-          .navIcons button {
-            all: unset;
-            background-color: gray;
-            padding: 10px;
-            margin-right: 10px;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-
-            a {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              text-decoration: none;
-              color: white;
-            }
-          }
-          .naveBtn {
+          padding-right: 10px;
+          .navIcons {
             display: flex;
-            align-items: center;
-            color: var(--blue);
-            gap: 5px;
+            margin-top: 5px;
+            gap: 12px;
             button {
               all: unset;
+              width: 35px;
+              height: 35px;
+              border-radius: 50%;
+              opacity: 0.5;
+
+              &:hover {
+                opacity: 1;
+                transform: translatey(-10px);
+                transition: 0.4s;
+                a {
+                  color: var(--blue);
+                }
+              }
+
+              a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                color: white;
+              }
+            }
+          }
+
+          .naveBtn {
+            color: var(--blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            button {
+              all: unset;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+
+            a {
+              color: var(--blue);
+              @keyframes spanAnimiation {
+                0% {
+                  transform: translateX(0);
+                }
+                50% {
+                  transform: translateX(8px);
+                }
+                100% {
+                  transform: translateX(0);
+                }
+              }
+            }
+
+            &:hover {
+              cursor: pointer;
+              a {
+                animation: spanAnimiation 0.7s linear infinite;
+              }
             }
           }
         }

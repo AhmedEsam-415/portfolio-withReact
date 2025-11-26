@@ -8,6 +8,7 @@ import Fotter from './components/5-Fotter/Fotter';
 import { useEffect, useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline, Button, Box } from '@mui/material';
+import ScrollTop from './components/scroll/Scroll';
 
 function App() {
   //! (Dark \ Light) => Mode
@@ -41,11 +42,11 @@ function App() {
       >
         <Header toggleMode={toggleMode} mode={mode} />
         <Hero mode={mode} />
-        <Main />
-        <hr />
-        <ContactUs />
-        <hr />
-        <Fotter />
+        <Main mode={mode} />
+        <ContactUs mode={mode} />
+        <Fotter mode={mode} />
+
+        <ScrollTop />
       </Container>
     </ThemeProvider>
   );

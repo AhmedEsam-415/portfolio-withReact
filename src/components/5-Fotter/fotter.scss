@@ -1,0 +1,19 @@
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 25px 0;
+
+  ul {
+    display: flex;
+    gap: 15px;
+
+    li {
+      &:hover {
+        transition: 0.3s;
+        a {
+          color: var(--blue) !important;
+        }
+      }
+    }
+  }
+}
