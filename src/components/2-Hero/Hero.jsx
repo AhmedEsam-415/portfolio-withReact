@@ -12,6 +12,7 @@ const Hero = ({ mode }) => {
   return (
     <Stack
       component={'section'}
+      className=" Hero"
       direction={{ xs: 'column', md: 'row' }}
       alignItems={'center '}
     >
@@ -56,7 +57,7 @@ const Hero = ({ mode }) => {
         </Stack>
       </div>
 
-      <div>Animation</div>
+      <div className="Animation">Animation</div>
     </Stack>
   );
 };

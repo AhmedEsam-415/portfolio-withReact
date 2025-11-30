@@ -10,8 +10,14 @@ const ScrollTop = () => {
         onClick={() => {
           window.scrollTo(500, 0);
         }}
-        sx={{ position: 'fixed', bottom: 40, right: 33 }}
-        color="primary"
+        sx={{
+          position: 'fixed',
+          bottom: 40,
+          right: 33,
+          color: '#232E33',
+          bgcolor: '#5DBCFC',
+          ':hover': { bgcolor: '#5DBCFC' },
+        }}
         aria-label="add"
       >
         <KeyboardArrowUpOutlinedIcon fontSize="medium" />

@@ -1,7 +1,10 @@
 import { Box, Stack } from '@mui/material';
 import './contactUs.scss';
+import { useForm, ValidationError } from '@formspree/react';
 
 const ContactUs = ({ mode }) => {
+  const [state, handleSubmit] = useForm('mnneapzr');
+
   return (
     <Box className="concatUs">
       <Box>
@@ -33,7 +36,7 @@ const ContactUs = ({ mode }) => {
       </Box>
 
       <Stack className="secContactUs">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div>
             <label
               htmlFor="email"
@@ -48,14 +51,25 @@ const ContactUs = ({ mode }) => {
             </label>
             <input
               type="email"
-              name=""
+              name="email"
               id="email"
               placeholder="Enter Your Email"
               required
+              style={{
+                backgroundColor: mode == 'dark' ? '#121212' : '#b4b4b4ff',
+              }}
+            />
+            <ValidationError
+              prefix="Email"
+              field="email"
+              errors={state.errors}
             />
           </div>
 
-          <div style={{ marginTop: 24, display: 'flex' }}>
+          <div
+            className="Divtextarea"
+            style={{ marginTop: 24, display: 'flex' }}
+          >
             <label
               htmlFor="msg"
               style={{
@@ -67,9 +81,23 @@ const ContactUs = ({ mode }) => {
             >
               Your Message
             </label>
-            <textarea id="msg" required></textarea>
+            <textarea
+              style={{
+                backgroundColor: mode == 'dark' ? '#121212' : '#b4b4b4ff',
+              }}
+              id="msg"
+              name="message"
+              required
+            ></textarea>
+            <ValidationError
+              prefix="Message"
+              field="message"
+              errors={state.errors}
+            />
           </div>
-          <button>Submit</button>
+          <button type="submit" disabled={state.submitting}>
+            {state.submitting ? 'Submitting...' : 'Submit'}
+          </button>
         </form>
 
         <Box className="contactAnimation">
@@ -92,6 +120,12 @@ const ContactUs = ({ mode }) => {
           </div>
         </Box>
       </Stack>
+
+      {state.succeeded && (
+        <h1 style={{ textAlign: 'center', marginTop: '15px' }}>
+          Your Message Has Been Sent Succeesfully
+        </h1>
+      )}
     </Box>
   );
 };

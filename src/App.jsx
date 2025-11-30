@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import { Container, Paper } from '@mui/material';
 import Header from './components/1-Header/Header';
 import Hero from './components/2-Hero/Hero';
 import Main from './components/3-main/Main';
@@ -40,7 +40,9 @@ function App() {
 
       <Container
         sx={{
-          bgcolor: mode === 'dark' ? 'rgb(24 24 27)' : ' #FFFFFF',
+          bgcolor: mode === 'dark' ? 'black' : 'white',
+          boxShadow:
+            '0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)',
         }}
         className="Container"
       >

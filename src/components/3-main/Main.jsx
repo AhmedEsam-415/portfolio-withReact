@@ -1,16 +1,90 @@
 import { Box, Paper, Stack } from '@mui/material';
 import './main.scss';
 import { useState } from 'react';
+import { Category } from '@mui/icons-material';
+
+const myProjects = [
+  {
+    id: 1,
+    title: 'react Project',
+    paragraph:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit.Dolore aspernatur',
+    Category: 'react',
+    img: '/public/ahmedEsam.jpg',
+  },
+  {
+    id: 2,
+    title: 'Css Project',
+    paragraph:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit.Dolore aspernatur',
+    Category: 'css',
+    img: '/public/ahmedEsam.jpg',
+  },
+  {
+    id: 3,
+    title: 'JavaScript Project',
+    paragraph:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit.Dolore aspernatur',
+    Category: 'js',
+    img: '/public/ahmedEsam.jpg',
+  },
+  {
+    id: 4,
+    title: 'Node Project',
+    paragraph:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit.Dolore aspernatur',
+    Category: 'node',
+    img: '/public/ahmedEsam.jpg',
+  },
+  {
+    id: 5,
+    title: 'Css Project 2',
+    paragraph:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit.Dolore aspernatur',
+    Category: ['css', 'react'],
+    img: '/public/ahmedEsam.jpg',
+  },
+  {
+    id: 6,
+    title: 'Boot Strap Project',
+    paragraph:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit.Dolore aspernatur',
+    Category: ['css', 'bootstrap'],
+    img: '/public/ahmedEsam.jpg',
+  },
+];
 
 const Main = ({ mode }) => {
+  //# useState
+  const [active, setActive] = useState(0);
+  const [project, setProject] = useState(myProjects);
+
   const Buttons = [
-    'All Projects',
-    'HTML & CSS',
-    'Java Script',
-    'eact & MUI',
-    'Node & Exprees',
+    { label: 'All Projects', value: 'all' },
+    { label: 'HTML & CSS', value: 'css' },
+    { label: 'JavaScript', value: 'js' },
+    { label: 'React & MUI', value: 'react' },
+    { label: 'Node & Exprees', value: 'node' },
+    { label: 'Bootstrap', value: 'bootstrap' },
   ];
-  const [active, setActive] = useState(null);
+
+  const handleFilterAndActive = (value, index) => {
+    setActive(index);
+
+    if (value === 'all') {
+      setProject(myProjects);
+    } else {
+      const filtered = myProjects.filter((item) => {
+        if (Array.isArray(item.Category)) {
+          return item.Category.map((c) => c.toLowerCase()).includes(value);
+        } else {
+          return item.Category.toLowerCase() === value;
+        }
+      });
+
+      setProject(filtered);
+    }
+  };
 
   return (
     <Stack
@@ -33,9 +107,9 @@ const Main = ({ mode }) => {
             <button
               key={i}
               className={active == i ? 'active' : ''}
-              onClick={() => setActive(i)}
+              onClick={() => handleFilterAndActive(item.value, i)}
             >
-              {item}
+              {item.label}
             </button>
           );
         })}
@@ -48,18 +122,18 @@ const Main = ({ mode }) => {
         gap={4}
         flexGrow={1}
       >
-        {['aaa', 'bbb', 'ccc', 'aaa', 'bbb', 'ccc'].map(() => {
+        {project.map((item) => {
           return (
-            <Paper er className="Card">
+            <Paper key={item.id} className="Card">
               <img
-                src="/public/ahmedEsam.jpg"
+                src={item.img}
                 style={{ width: '100%' }}
                 width={160}
                 height={160}
                 alt=""
               />
               <Box sx={{ pl: 1, my: 2 }}>
-                <h1>Project Name</h1>
+                <h1>{item.title}</h1>
                 <p
                   style={{
                     color:
@@ -68,9 +142,7 @@ const Main = ({ mode }) => {
                         : 'var(--supTitleInLight)',
                   }}
                 >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolore aspernatur, assumenda ab rem et beatae vero at harum
-                  eaque, impedit? Et!
+                  {item.paragraph}
                 </p>
 
                 <Stack
@@ -89,6 +161,7 @@ const Main = ({ mode }) => {
                     >
                       <a className="icon-link" href=""></a>
                     </button>
+
                     <button
                       style={{
                         backgroundColor:
@@ -103,7 +176,7 @@ const Main = ({ mode }) => {
 
                   <Box className="naveBtn">
                     <button>More</button>
-                    <a href="#FFFFFF" className="icon-arrow-right2" />
+                    <a href="#" className="icon-arrow-right2" />
                   </Box>
                 </Stack>
               </Box>

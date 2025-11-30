@@ -24,8 +24,7 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #fafafa;
-  color: #fff;
+  background-color: rgb(24 24 27);
 
   // Scroll Bar
   --sb-track-color: #232e33;
@@ -54,11 +53,6 @@ body {
   }
 
   .Container {
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
-    border-bottom-right-radius: 7px;
-    border-bottom-left-radius: 7px;
-
     @media (max-width: 600px) {
       max-width: 95%;
     }
@@ -78,6 +72,7 @@ body {
   li {
     list-style: none;
   }
+
   a {
     text-decoration: none;
   }

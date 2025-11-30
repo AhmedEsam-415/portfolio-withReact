@@ -5,11 +5,11 @@ import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 
 import './header.scss';
-import { Box } from '@mui/material';
+import { Box, Paper } from '@mui/material';
 
 const Header = ({ toggleMode, mode }) => {
   const [showModel, setshowModel] = useState(false);
-  const linkes = ['About Me', 'Article', 'Projects', 'Speaking', 'Contact'];
+  const linkes = ['About Me', 'Projects', 'Contact Us'];
 
   return (
     <header>
@@ -19,10 +19,10 @@ const Header = ({ toggleMode, mode }) => {
         <DensityMediumIcon fontSize="medium" />
       </button>
 
-      <Box
+      <Paper
         component={'nav'}
         sx={{
-          bgcolor: mode === 'dark' ? 'var(--bgHeader)'   : '#FFFFFF',
+          borderRadius: '40px',
         }}
       >
         <ul>
@@ -31,7 +31,7 @@ const Header = ({ toggleMode, mode }) => {
               <li key={i}>
                 <a
                   style={{
-                    color: mode == 'dark' ? 'var(--supTitle)' : 'black',
+                    color: mode == 'dark' ? 'white' : 'black',
                   }}
                   href="#"
                 >
@@ -41,11 +41,11 @@ const Header = ({ toggleMode, mode }) => {
             );
           })}
         </ul>
-      </Box>
+      </Paper>
 
       <button
         style={{
-          bgcolor: mode == 'dark' ? 'var(--supTitle)' : 'white',
+          backgroundColor: mode == 'dark' ? '#1E1E1E' : 'white',
           color: mode == 'dark' ? 'white' : 'black',
         }}
         onClick={() => toggleMode()}
