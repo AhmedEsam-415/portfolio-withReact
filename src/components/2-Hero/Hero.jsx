@@ -1,6 +1,11 @@
 import { Stack } from '@mui/material';
 import './hero.scss';
 
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'motion/react';
+
 const Hero = ({ mode }) => {
   const icons = [
     'icon-facebook',
@@ -18,8 +23,19 @@ const Hero = ({ mode }) => {
     >
       <div>
         <div className="parent-avatar">
-          <img src="/public/ahmedEsam-modified.png" alt="" />
-          <span className="icon-verified" />
+          <motion.img
+            initial={{ transform: 'scale(0)' }}
+            animate={{ transform: 'scale(1.1)' }}
+            transition={{ damping: 7, type: 'spring' }}
+            src="/public/ahmedEsam-modified.png"
+            alt=""
+          />
+          <motion.span
+            initial={{ transform: 'scale(0)' }}
+            animate={{ transform: 'scale(1.2)' }}
+            transition={{ damping: 7, type: 'spring' }}
+            className="icon-verified"
+          />
         </div>
 
         <h1>
@@ -57,7 +73,13 @@ const Hero = ({ mode }) => {
         </Stack>
       </div>
 
-      <div className="Animation">Animation</div>
+      <div className="Animation">
+        <DotLottieReact
+          src="/public/animation/Programming Computer.json"
+          loop
+          autoplay
+        />
+      </div>
     </Stack>
   );
 };

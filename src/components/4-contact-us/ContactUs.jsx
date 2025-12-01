@@ -2,6 +2,9 @@ import { Box, Stack } from '@mui/material';
 import './contactUs.scss';
 import { useForm, ValidationError } from '@formspree/react';
 
+// animation Imports
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+
 const ContactUs = ({ mode }) => {
   const [state, handleSubmit] = useForm('mnneapzr');
 
@@ -87,6 +90,7 @@ const ContactUs = ({ mode }) => {
               }}
               id="msg"
               name="message"
+              placeholder="Enter Your Message"
               required
             ></textarea>
             <ValidationError
@@ -101,30 +105,27 @@ const ContactUs = ({ mode }) => {
         </form>
 
         <Box className="contactAnimation">
-          <div class="letter-image">
-            <div class="animated-mail">
-              <div class="back-fold"></div>
-              <div class="letter">
-                <div class="letter-border"></div>
-                <div class="letter-title"></div>
-                <div class="letter-context"></div>
-                <div class="letter-stamp">
-                  <div class="letter-stamp-inner"></div>
-                </div>
-              </div>
-              <div class="top-fold"></div>
-              <div class="body"></div>
-              <div class="left-fold"></div>
-            </div>
-            <div class="shadow"></div>
-          </div>
+          <DotLottieReact src="/public/animation/Email.json" loop autoplay />
         </Box>
       </Stack>
 
       {state.succeeded && (
-        <h1 style={{ textAlign: 'center', marginTop: '15px' }}>
-          Your Message Has Been Sent Succeesfully
-        </h1>
+        <div
+          style={{
+            textAlign: 'center',
+            marginTop: '15px',
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          <DotLottieReact
+            style={{ height: '55px', width: '55px', marginRight: '10px' }}
+            src="/public/animation/success.json"
+            loop={false}
+            autoplay
+          />
+          <p>Your Message Has Been Sent Succeesfully</p>
+        </div>
       )}
     </Box>
   );

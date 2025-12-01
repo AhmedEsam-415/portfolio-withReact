@@ -3,6 +3,9 @@ import './main.scss';
 import { useState } from 'react';
 import { Category } from '@mui/icons-material';
 
+// eslint-disable-next-line no-unused-vars
+import { AnimatePresence, easeInOut, motion } from 'motion/react';
+
 const myProjects = [
   {
     id: 1,
@@ -86,6 +89,8 @@ const Main = ({ mode }) => {
     }
   };
 
+  const MotionPaper = motion(Paper);
+
   return (
     <Stack
       className="Main"
@@ -122,67 +127,89 @@ const Main = ({ mode }) => {
         gap={4}
         flexGrow={1}
       >
-        {project.map((item) => {
-          return (
-            <Paper key={item.id} className="Card">
-              <img
-                src={item.img}
-                style={{ width: '100%' }}
-                width={160}
-                height={160}
-                alt=""
-              />
-              <Box sx={{ pl: 1, my: 2 }}>
-                <h1>{item.title}</h1>
-                <p
-                  style={{
-                    color:
-                      mode === 'dark'
-                        ? 'var(--supTitleInDark)'
-                        : 'var(--supTitleInLight)',
-                  }}
-                >
-                  {item.paragraph}
-                </p>
+        <AnimatePresence>
+          {project.map((item, i) => {
+            const isNew = i === project.length - 1;
 
-                <Stack
-                  component={'nav'}
-                  direction={'row'}
-                  justifyContent={'space-between'}
-                >
-                  <Box className="navIcons">
-                    <button
-                      style={{
-                        backgroundColor:
-                          mode == 'light'
-                            ? 'var(--supTitleInDark)'
-                            : 'var(--supTitleInLight)',
-                      }}
-                    >
-                      <a className="icon-link" href=""></a>
-                    </button>
+            return (
+              //! Start Filter Transition
+              <MotionPaper
+                layout
+                initial={isNew ? { scale: 0.8, y: 20, opacity: 0 } : false}
+                animate={isNew ? { scale: 1, y: 0, opacity: 1 } : false}
+                transition={
+                  isNew
+                    ? {
+                        type: 'spring',
+                        stiffness: 260,
+                        damping: 20,
+                        mass: 0.8,
+                      }
+                    : false
+                }
+                exit={isNew ? { opacity: 0, y: -50 } : false}
+                key={i}
+                className="Card"
+              >
+                <img
+                  src={item.img}
+                  style={{ width: '100%' }}
+                  width={160}
+                  height={160}
+                  alt=""
+                />
+                <Box sx={{ pl: 1, my: 2 }}>
+                  <h1>{item.title}</h1>
+                  <p
+                    style={{
+                      color:
+                        mode === 'dark'
+                          ? 'var(--supTitleInDark)'
+                          : 'var(--supTitleInLight)',
+                    }}
+                  >
+                    {item.paragraph}
+                  </p>
 
-                    <button
-                      style={{
-                        backgroundColor:
-                          mode == 'light'
-                            ? 'var(--supTitleInDark)'
-                            : 'var(--supTitleInLight)',
-                      }}
-                    >
-                      <a className="icon-github" href=""></a>
-                    </button>
-                  </Box>
+                  <Stack
+                    component={'nav'}
+                    direction={'row'}
+                    justifyContent={'space-between'}
+                  >
+                    <Box className="navIcons">
+                      <button
+                        style={{
+                          backgroundColor:
+                            mode == 'light'
+                              ? 'var(--supTitleInDark)'
+                              : 'var(--supTitleInLight)',
+                        }}
+                      >
+                        <a className="icon-link" href=""></a>
+                      </button>
 
-                  <Box className="naveBtn">
-                    <button>More</button>
-                    <a href="#" className="icon-arrow-right2" />
-                  </Box>
-                </Stack>
-              </Box>
-            </Paper>
-          );
-        })}
+                      <button
+                        style={{
+                          backgroundColor:
+                            mode == 'light'
+                              ? 'var(--supTitleInDark)'
+                              : 'var(--supTitleInLight)',
+                        }}
+                      >
+                        <a className="icon-github" href=""></a>
+                      </button>
+                    </Box>
+
+                    <Box className="naveBtn">
+                      <button>More</button>
+                      <a href="#" className="icon-arrow-right2" />
+                    </Box>
+                  </Stack>
+                </Box>
+              </MotionPaper>
+            );
+          })}
+        </AnimatePresence>
       </Stack>
     </Stack>
   );

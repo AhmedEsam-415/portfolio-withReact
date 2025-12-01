@@ -1,7 +1,7 @@
 import './fotter.scss';
 
 const Fotter = ({ mode }) => {
-  const links = ['About', 'Projects', 'Speacking', 'Users'];
+  const links = ['About Me', 'Projects', 'Contact Us'];
   return (
     <footer>
       <ul>
