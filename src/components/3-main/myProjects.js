@@ -53,12 +53,14 @@ export const myProjects = [
   },
   {
     id: 6,
-    img: '',
-    title: '',
-    text: '',
-    linkProject: '',
-    linkGitHub: '',
-    Category: '',
+    img: '/public/image/special-Design.png',
+    title: 'Special Design',
+    text: 'Six Project',
+    linkProject:
+      'https://ahmedesam-415.github.io/Creat-Template-With-Html-Css-Js/',
+    linkGitHub:
+      'https://github.com/AhmedEsam-415/Creat-Template-With-Html-Css-Js',
+    Category: ['css', 'js'],
   },
   {
     id: 7,
