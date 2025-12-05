@@ -8,10 +8,10 @@ import { motion } from 'motion/react';
 
 const Hero = ({ mode }) => {
   const icons = [
-    'icon-facebook',
-    'icon-instagram',
-    'icon-github',
-    'icon-linkedin',
+    { iconLink: '', iconName: 'icon-facebook' },
+    { iconLink: '', iconName: 'icon-instagram' },
+    { iconLink: '', iconName: 'icon-github' },
+    { iconLink: '', iconName: 'icon-linkedin' },
   ];
 
   return (
@@ -66,7 +66,7 @@ const Hero = ({ mode }) => {
           {icons.map((item, i) => {
             return (
               <span key={i}>
-                <a href="#" className={item}></a>
+                <a href="#" className={item.iconName}></a>
               </span>
             );
           })}
