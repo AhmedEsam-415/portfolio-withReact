@@ -64,12 +64,12 @@ export const myProjects = [
   },
   {
     id: 7,
-    img: '',
-    title: '',
-    text: '',
-    linkProject: '',
-    linkGitHub: '',
-    Category: '',
+    img: '/public/image/reactDashBoard.png',
+    title: 'Reacr DashBoard',
+    text: 'Reazt Projec`t',
+    linkProject: 'https://dashboard-ee76b.web.app/',
+    linkGitHub: 'https://github.com/AhmedEsam-415/DashBoard',
+    Category: 'react',
   },
   {
     id: 8,
