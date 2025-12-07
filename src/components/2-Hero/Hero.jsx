@@ -8,10 +8,19 @@ import { motion } from 'motion/react';
 
 const Hero = ({ mode }) => {
   const icons = [
-    { iconLink: '', iconName: 'icon-facebook' },
-    { iconLink: '', iconName: 'icon-instagram' },
-    { iconLink: '', iconName: 'icon-github' },
-    { iconLink: '', iconName: 'icon-linkedin' },
+    {
+      iconLink: 'https://www.facebook.com/MeshAhmedEsam/',
+      iconName: 'icon-facebook',
+    },
+    {
+      iconLink: 'https://www.instagram.com/ahmedbnessam_/',
+      iconName: 'icon-instagram',
+    },
+    { iconLink: 'https://github.com/AhmedEsam-415', iconName: 'icon-github' },
+    {
+      iconLink: 'https://www.linkedin.com/in/ahmed-esam-0bb173297/',
+      iconName: 'icon-linkedin',
+    },
   ];
 
   return (
@@ -30,6 +39,7 @@ const Hero = ({ mode }) => {
             src="/public/ahmedEsam-modified.png"
             alt=""
           />
+
           <motion.span
             initial={{ transform: 'scale(0)' }}
             animate={{ transform: 'scale(1.2)' }}
@@ -66,7 +76,7 @@ const Hero = ({ mode }) => {
           {icons.map((item, i) => {
             return (
               <span key={i}>
-                <a href="#" className={item.iconName}></a>
+                <a href={item.iconLink} className={item.iconName} target='_blank'></a>
               </span>
             );
           })}
