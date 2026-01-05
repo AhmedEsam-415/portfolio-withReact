@@ -39,8 +39,6 @@ const Main = ({ mode }) => {
     }
   };
 
-  const MotionPaper = motion(Paper);
-
   return (
     <Stack
       className="Main"
@@ -48,6 +46,9 @@ const Main = ({ mode }) => {
       alignItems={{ xs: 'center' }}
       mt={3}
       gap={{ xs: 4, md: 0 }}
+      // 2. أنيميشن للكونتينت كله وهو بيظهر لأول مرة
+      data-aos="fade-up"
+      data-aos-delay={1400} // تتابع في الظهور (Stagger)
     >
       <Stack
         className="firstDiv"
@@ -56,18 +57,18 @@ const Main = ({ mode }) => {
         direction={'column'}
         alignSelf={{ xs: 'center', md: 'flex-start' }}
         gap={'10px'}
+        // أنيميشن للقائمة الجانبية (تظهر من الشمال مثلاً)
+        data-aos="fade-right"
       >
-        {Buttons.map((item, i) => {
-          return (
-            <button
-              key={i}
-              className={active == i ? 'active' : ''}
-              onClick={() => handleFilterAndActive(item.value, i)}
-            >
-              {item.label}
-            </button>
-          );
-        })}
+        {Buttons.map((item, i) => (
+          <button
+            key={i}
+            className={active == i ? 'active' : ''}
+            onClick={() => handleFilterAndActive(item.value, i)}
+          >
+            {item.label}
+          </button>
+        ))}
       </Stack>
 
       <Stack
@@ -77,99 +78,84 @@ const Main = ({ mode }) => {
         gap={4}
         flexGrow={1}
       >
-        <AnimatePresence>
-          {project.map((item, i) => {
-            const isNew = i === project.length - 1;
+        {project.map((item, i) => {
+          if (item.title !== '') {
+            return (
+              <Paper
+                key={item.title} // يفضل تستخدم عنوان المشروع أو id بدل الـ i
+                className="Card"
+                // 3. أنيميشن للكروت وهي بتظهر من تحت لفوق
+                data-aos="fade-up"
+                data-aos-delay={i * 100} // تتابع في الظهور (Stagger)
+              >
+                <img
+                  src={item.img}
+                  style={{ width: '100%' }}
+                  width={160}
+                  height={160}
+                  alt=""
+                />
 
-            if (item.title != '') {
-              return (
-                //! Start Filter Transition
-                <MotionPaper
-                  layout
-                  initial={isNew ? { scale: 0.8, y: 20, opacity: 0 } : false}
-                  animate={isNew ? { scale: 1, y: 0, opacity: 1 } : false}
-                  transition={
-                    isNew
-                      ? {
-                          type: 'spring',
-                          stiffness: 260,
-                          damping: 20,
-                          mass: 0.8,
-                        }
-                      : false
-                  }
-                  exit={isNew ? { opacity: 0, y: -50 } : false}
-                  key={i}
-                  className="Card"
-                >
-                  <img
-                    src={item.img}
-                    style={{ width: '100%' }}
-                    width={160}
-                    height={160}
-                    alt=""
-                  />
-                  <Box sx={{ pl: 1, my: 2 }}>
-                    <h1>{item.title}</h1>
-                    <p
-                      style={{
-                        color:
-                          mode === 'dark'
-                            ? 'var(--supTitleInDark)'
-                            : 'var(--supTitleInLight)',
-                      }}
-                    >
-                      {item.text}
-                    </p>
+                <Box sx={{ pl: 1, my: 2 }}>
+                  <h1>{item.title}</h1>
+                  <p
+                    style={{
+                      color:
+                        mode === 'dark'
+                          ? 'var(--supTitleInDark)'
+                          : 'var(--supTitleInLight)',
+                    }}
+                  >
+                    {item.text}
+                  </p>
 
-                    <Stack
-                      component={'nav'}
-                      direction={'row'}
-                      justifyContent={'space-between'}
-                    >
-                      <Box className="navIcons">
-                        <button
-                          style={{
-                            backgroundColor:
-                              mode == 'light'
-                                ? 'var(--supTitleInDark)'
-                                : 'var(--supTitleInLight)',
-                          }}
-                        >
-                          <a
-                            className="icon-link"
-                            target="_blank"
-                            href={item.linkProject}
-                          ></a>
-                        </button>
+                  <Stack
+                    component={'nav'}
+                    direction={'row'}
+                    justifyContent={'space-between'}
+                  >
+                    <Box className="navIcons">
+                      <button
+                        style={{
+                          backgroundColor:
+                            mode == 'light'
+                              ? 'var(--supTitleInDark)'
+                              : 'var(--supTitleInLight)',
+                        }}
+                      >
+                        <a
+                          className="icon-link"
+                          target="_blank"
+                          href={item.linkProject}
+                        ></a>
+                      </button>
+                      <button
+                        style={{
+                          backgroundColor:
+                            mode == 'light'
+                              ? 'var(--supTitleInDark)'
+                              : 'var(--supTitleInLight)',
+                        }}
+                      >
+                        <a
+                          className="icon-github"
+                          target="_blank"
+                          href={item.linkGitHub}
+                        ></a>
+                      </button>
+                    </Box>
 
-                        <button
-                          style={{
-                            backgroundColor:
-                              mode == 'light'
-                                ? 'var(--supTitleInDark)'
-                                : 'var(--supTitleInLight)',
-                          }}
-                        >
-                          <a
-                            className="icon-github"
-                            target="_blank"
-                            href={item.linkGitHub}
-                          ></a>
-                        </button>
-                      </Box>
-
-                      <Box className="naveBtn">
-                        <button>More</button>
-                        <a href="#" className="icon-arrow-right2" />
-                      </Box>
-                    </Stack>
-                  </Box>
-                </MotionPaper>
-              );
-            }
-          })}
-        </AnimatePresence>
+                    <Box className="naveBtn">
+                      <button>More</button>
+                      <a href="#" className="icon-arrow-right2" />
+                    </Box>
+                  </Stack>
+                </Box>
+              </Paper>
+            );
+          }
+          return null;
+        })}
       </Stack>
     </Stack>
   );

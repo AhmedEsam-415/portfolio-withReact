@@ -29,6 +29,8 @@ const Hero = ({ mode }) => {
       className=" Hero"
       direction={{ xs: 'column', md: 'row' }}
       alignItems={'center '}
+      data-aos="fade-up"
+      data-aos-delay={800} // تتابع في الظهور (Stagger)
     >
       <div>
         <div className="parent-avatar">
@@ -72,11 +74,22 @@ const Hero = ({ mode }) => {
           clarity, simplicity, and user-focused design.
         </p>
 
-        <Stack className="media" direction={'row'} gap={2} mt={3}>
+        <Stack
+          className="media"
+          direction={'row'}
+          gap={2}
+          mt={3}
+          data-aos="fade-left"
+          data-aos-delay={1000} // تتابع في الظهور (Stagger)
+        >
           {icons.map((item, i) => {
             return (
               <span key={i}>
-                <a href={item.iconLink} className={item.iconName} target='_blank'></a>
+                <a
+                  href={item.iconLink}
+                  className={item.iconName}
+                  target="_blank"
+                ></a>
               </span>
             );
           })}

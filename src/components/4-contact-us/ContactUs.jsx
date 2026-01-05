@@ -9,7 +9,7 @@ const ContactUs = ({ mode }) => {
   const [state, handleSubmit] = useForm('mnneapzr');
 
   return (
-    <Box className="concatUs">
+    <Box className="concatUs" data-aos="fade-up" data-aos-delay={700}>
       <Box>
         <Stack direction={'row'} alignItems={'center'} gap={2}>
           <span

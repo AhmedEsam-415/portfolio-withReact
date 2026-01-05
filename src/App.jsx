@@ -10,6 +10,9 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline, Button, Box } from '@mui/material';
 import ScrollTop from './components/scroll/Scroll';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 function App() {
   //! (Dark \ Light) => Mode
   const [mode, setMode] = useState(() => {
@@ -33,6 +36,25 @@ function App() {
       }),
     [mode]
   );
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // سرعة الحركة (ملي ثانية)
+      once: false, // تحصل مرة واحدة بس
+      mirror: true, // دي "السر": بتخلي العنصر يختفي لما تتجاوزه وأنت طالع أو نازل
+      offset: 50, // تقليل المسافة عشان يظهر بسرعة
+      anchorPlacement: 'top-bottom', // بيخلي العنصر يظهر أول ما طرفه يلمس الشاشة
+    });
+  }, []);
+
+  useEffect(() => {
+    // بنعمل تأخير 100 ملي ثانية عشان ندي فرصة لـ Material UI يغير الثيم
+    const timer = setTimeout(() => {
+      AOS.refreshHard(); // دي أقوى من refresh العادية وبتمسح الحسابات القديمة
+    }, 0);
+
+    return () => clearTimeout(timer);
+  }, [mode]); // الكود ده هيتنفذ "كل ما المود يتغير"
 
   return (
     <ThemeProvider theme={them}>
