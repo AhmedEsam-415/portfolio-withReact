@@ -48,7 +48,7 @@ const Main = ({ mode }) => {
       gap={{ xs: 4, md: 0 }}
       // 2. أنيميشن للكونتينت كله وهو بيظهر لأول مرة
       data-aos="fade-up"
-      data-aos-delay={1400} // تتابع في الظهور (Stagger)
+      data-aos-delay={500} // تتابع في الظهور (Stagger)
     >
       <Stack
         className="firstDiv"
