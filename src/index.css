@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --primary: #000;
+  --secondry: rgb(24 24 27);
+  --border: rgba(63, 63, 70, 0.4);
+  --title: rgb(244 244 244);
+  --supTitleInDark: rgb(159, 159, 169);
+  --supTitleInLight: rgba(82, 82, 92);
+  --bgHeader: rgb(39, 39, 42);
+  --blue: rgb(93 188 252);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(24, 24, 27);
+  --sb-track-color: #232e33;
+  --sb-thumb-color: rgb(93 188 252);
+  --sb-size: 12px;
+  /* Fallback for browsers that don't support webkit scrollbars */
+}
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 20px;
+}
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 20px;
+  border: 2px solid var(--sb-track-color);
+}
+@supports (scrollbar-color: auto) {
+  body body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    scrollbar-width: thin;
+  }
+}
+@media (max-width: 600px) {
+  body .Container {
+    max-width: 95%;
+  }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  body .Container {
+    max-width: 90%;
+  }
+}
+@media (min-width: 901px) and (max-width: 1200px) {
+  body .Container {
+    max-width: 85%;
+  }
+}
+@media (min-width: 1200px) {
+  body .Container {
+    max-width: 90%;
+  }
+}
+body li {
+  list-style: none;
+}
+body a {
+  text-decoration: none;
+}/*# sourceMappingURL=index.css.map */

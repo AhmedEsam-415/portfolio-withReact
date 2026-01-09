@@ -9,7 +9,7 @@ import { motion } from 'motion/react';
 const Hero = ({ mode }) => {
   const icons = [
     {
-      iconLink: 'https://www.facebook.com/MeshAhmedEsam/',
+      iconLink: 'https://www.facebook.com/AhmedBnEssam0/',
       iconName: 'icon-facebook',
     },
     {
@@ -38,7 +38,7 @@ const Hero = ({ mode }) => {
             initial={{ transform: 'scale(0)' }}
             animate={{ transform: 'scale(1.1)' }}
             transition={{ damping: 7, type: 'spring' }}
-            src="/public/ahmedEsam-modified.png"
+            src="/ahmedEsam-modified.png"
             alt=""
           />
 
@@ -98,7 +98,7 @@ const Hero = ({ mode }) => {
 
       <div className="Animation">
         <DotLottieReact
-          src="/public/animation/Programming Computer.json"
+          src="/animation/Programming Computer.json"
           loop
           autoplay
         />

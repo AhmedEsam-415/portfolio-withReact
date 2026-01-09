@@ -1,0 +1,22 @@
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 25px 0;
+}
+@media (max-width: 600px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+}
+footer ul {
+  display: flex;
+  gap: 15px;
+}
+footer ul li:hover {
+  transition: 0.3s;
+}
+footer ul li:hover a {
+  color: var(--blue) !important;
+}/*# sourceMappingURL=fotter.css.map */

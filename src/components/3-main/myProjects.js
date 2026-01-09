@@ -8,7 +8,7 @@
 export const myProjects = [
   {
     id: 1,
-    img: '/public/image/one.png',
+    img: '/image/one.png',
     title: 'Leon - Super ',
     text: 'Fist Project',
     linkProject: 'https://ahmedesam-415.github.io/Project_One/',
@@ -17,7 +17,7 @@ export const myProjects = [
   },
   {
     id: 2,
-    img: '/public/image/two.png',
+    img: '/image/two.png',
     title: 'Kasper',
     text: 'Second Project',
     linkProject: 'https://ahmedesam-415.github.io/Project_Two/',
@@ -26,7 +26,7 @@ export const myProjects = [
   },
   {
     id: 3,
-    img: '/public/image/three.png',
+    img: '/image/three.png',
     title: 'NovaCorner',
     text: 'Thred Project',
     linkProject: 'https://ahmedesam-415.github.io/Project_Three/',
@@ -35,7 +35,7 @@ export const myProjects = [
   },
   {
     id: 4,
-    img: '/public/image/four.png',
+    img: '/image/four.png',
     title: 'Dashboard',
     text: 'Ford Project',
     linkProject: 'https://ahmedesam-415.github.io/Project_Four/',
@@ -44,7 +44,7 @@ export const myProjects = [
   },
   {
     id: 5,
-    img: '/public/image/bondi.png',
+    img: '/image/bondi.png',
     title: 'Bondi',
     text: 'Five Project',
     linkProject: 'https://ahmedesam-415.github.io/Bootstrap/',
@@ -53,7 +53,7 @@ export const myProjects = [
   },
   {
     id: 6,
-    img: '/public/image/special-Design.png',
+    img: '/image/special-Design.png',
     title: 'Special Design',
     text: 'Six Project',
     linkProject:
@@ -64,9 +64,9 @@ export const myProjects = [
   },
   {
     id: 7,
-    img: '/public/image/reactDashBoard.png',
-    title: 'Reacr DashBoard',
-    text: 'Reazt Projec`t',
+    img: '/image/reactDashBoard.png',
+    title: 'React DashBoard',
+    text: 'React Projec`t',
     linkProject: 'https://dashboard-ee76b.web.app/',
     linkGitHub: 'https://github.com/AhmedEsam-415/DashBoard',
     Category: 'react',

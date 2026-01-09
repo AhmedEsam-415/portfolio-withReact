@@ -105,7 +105,7 @@ const ContactUs = ({ mode }) => {
         </form>
 
         <Box className="contactAnimation">
-          <DotLottieReact src="/public/animation/Email.json" loop autoplay />
+          <DotLottieReact src="/animation/Email.json" loop autoplay />
         </Box>
       </Stack>
 
@@ -120,7 +120,7 @@ const ContactUs = ({ mode }) => {
         >
           <DotLottieReact
             style={{ height: '55px', width: '55px', marginRight: '10px' }}
-            src="/public/animation/success.json"
+            src="/animation/success.json"
             loop={false}
             autoplay
           />

@@ -1,0 +1,110 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+@media (max-width: 600px) {
+  header span {
+    display: none;
+  }
+}
+@media (min-width: 600px) {
+  header button:first-of-type {
+    display: none;
+  }
+}
+header nav {
+  padding: 0.75rem 1.5rem;
+}
+@media (max-width: 600px) {
+  header nav {
+    display: none;
+  }
+}
+header nav ul {
+  display: flex;
+  gap: 16px;
+}
+header nav li a {
+  text-decoration: none;
+  opacity: 0.8;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+header nav li a:hover {
+  opacity: 1;
+  transition: 0.3s;
+  cursor: pointer;
+  color: var(--blue) !important;
+}
+header button {
+  all: unset;
+  display: flex;
+  font-size: 1.2rem;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px inset;
+}
+header div {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(40, 40, 48, 0.75);
+  z-index: 100;
+  transition: 2s;
+  -webkit-backdrop-filter: blur(0.25rem);
+          backdrop-filter: blur(0.25rem);
+}
+header div ul {
+  width: 75%;
+  margin: 2.2rem auto;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  overflow: hidden;
+  animation: OpenMenu 0.4s linear 0s forwards;
+}
+@keyframes OpenMenu {
+  0% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
+  0% {
+    scale: 0;
+  }
+}
+header div ul li {
+  padding: 25px 0 15px;
+  position: relative;
+}
+header div ul li svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+header div ul li svg:hover {
+  transform: rotate(180deg);
+  transition: 0.2s;
+  color: red;
+}
+header div ul li:not(:last-child):not(:first-child) {
+  border-bottom: 1px solid var(--border);
+}
+header div ul li:first-child {
+  padding-bottom: 0;
+}
+header div ul li:nth-child(2) {
+  padding-top: 10px;
+}
+header div ul li:hover:not(:first-child) {
+  transform: translateX(40px);
+  transition: 0.3s;
+}
+header div ul li a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bolder;
+}/*# sourceMappingURL=header.css.map */

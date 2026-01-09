@@ -1,0 +1,132 @@
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+.Main {
+  margin-bottom: 3rem;
+}
+.Main div.firstDiv {
+  min-width: 320px;
+  max-width: 3700px;
+}
+.Main div.firstDiv button {
+  all: unset;
+  cursor: pointer;
+  background-color: rgb(36, 37, 46);
+  color: white;
+  padding: 0.7rem 0;
+  text-align: center;
+  font-size: 1.05rem;
+  text-transform: capitalize;
+  opacity: 0.5;
+  letter-spacing: 0.5008px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.Main div.firstDiv button.active {
+  opacity: 1;
+  border: 1px solid var(--blue);
+  font-weight: bolder;
+  padding: 0.9rem 0;
+}
+.Main div.firstDiv button:hover {
+  opacity: 1;
+  border: 1px solid var(--blue);
+}
+.Main div.secDiv {
+  justify-content: center;
+}
+.Main div.secDiv .Card {
+  max-width: 300px;
+}
+.Main div.secDiv .Card:hover {
+  animation: cardAnimation 0.6s linear;
+  outline: 1px solid var(--blue);
+}
+@keyframes cardAnimation {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.05;
+    rotate: 2deg;
+  }
+  100% {
+    scale: 1;
+    rotate: 0;
+  }
+}
+.Main div.secDiv .Card div h1 {
+  font-size: 23px;
+  text-transform: capitalize;
+}
+.Main div.secDiv .Card div p {
+  line-height: 1.12;
+  letter-spacing: 0.7;
+  margin: 10px 0;
+}
+.Main div.secDiv .Card div nav {
+  margin: 15px 0;
+  align-items: center;
+  padding-right: 10px;
+}
+.Main div.secDiv .Card div nav .navIcons {
+  display: flex;
+  margin-top: 5px;
+  gap: 12px;
+}
+.Main div.secDiv .Card div nav .navIcons button {
+  all: unset;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+.Main div.secDiv .Card div nav .navIcons button:hover {
+  opacity: 1;
+  transform: translatey(-10px);
+  transition: 0.4s;
+}
+.Main div.secDiv .Card div nav .navIcons button:hover a {
+  color: var(--blue);
+}
+.Main div.secDiv .Card div nav .navIcons button a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+}
+.Main div.secDiv .Card div nav .naveBtn {
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.Main div.secDiv .Card div nav .naveBtn button {
+  all: unset;
+}
+.Main div.secDiv .Card div nav .naveBtn button:hover {
+  text-decoration: underline;
+}
+.Main div.secDiv .Card div nav .naveBtn a {
+  color: var(--blue);
+}
+@keyframes spanAnimiation {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.Main div.secDiv .Card div nav .naveBtn:hover {
+  cursor: pointer;
+}
+.Main div.secDiv .Card div nav .naveBtn:hover a {
+  animation: spanAnimiation 0.7s linear infinite;
+}/*# sourceMappingURL=main.css.map */
