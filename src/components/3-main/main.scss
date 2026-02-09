@@ -141,3 +141,71 @@ a {
     }
   }
 }
+
+/* --- Popup Styles --- */
+
+// 1. الطبقة الخلفية (الظلام)
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); // لون أسود شفاف
+  z-index: 1200; // رقم عالي عشان يظهر فوق كل عناصر MUI
+  cursor: pointer;
+}
+
+// 2. صندوق الصورة نفسه
+.popup-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); // عشان يتوسطن في الشاشة بالضبط
+  background-color: #fff; // لون الخلفية (ممكن تغيره لمتغير لو عندك Dark Mode)
+  padding: 15px;
+  border-radius: 8px;
+  z-index: 1201; // لازم يكون أعلى من الـ overlay
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+
+  // التحكم في حجم الصورة عشان متبقاش أكبر من الشاشة
+  img {
+    max-width: 90vw; // أقصى عرض 90% من الشاشة
+    max-height: 85vh; // أقصى ارتفاع 85% من الشاشة
+    display: block;
+    object-fit: contain;
+  }
+
+  // تنسيق عنوان الصورة (اختياري)
+  h3 {
+    margin: 0 0 10px 0;
+    text-align: center;
+    color: #333;
+    font-size: 1.2rem;
+  }
+
+  // 3. زر الإغلاق (X)
+  .closeButton {
+    position: absolute;
+    top: -15px; // يخرج برة الصندوق شوية من فوق
+    right: -15px; // يخرج برة الصندوق شوية من اليمين
+    width: 35px;
+    height: 35px;
+    background-color: #ff3b3b; // لون أحمر
+    color: white;
+    border-radius: 50%; // شكل دائري
+    text-align: center;
+    line-height: 35px; // توسيط النص رأسياً
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    border: 2px solid #fff; // برواز أبيض جمالي
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #d32f2f; // يغمق لما تقف عليه
+      transform: scale(1.1); // يكبر سنة بسيطة
+    }
+  }
+}
